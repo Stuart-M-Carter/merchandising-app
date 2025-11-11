@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import Home from './views/Home.tsx';
-import Assortments from './views/Assortments.tsx';
-import Hierarchy from './views/Hierarchy.tsx';
+import Home from './components/views/Home.tsx';
+import Assortments from './components/views/Assortments.tsx';
+import Hierarchy from './components/views/Hierarchy.tsx';
 import MainLayout from "./main-layout.tsx";
 
 const router = createBrowserRouter([

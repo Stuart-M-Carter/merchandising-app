@@ -16,9 +16,12 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
+    "inversify": "^6.2.2",
+    "inversify-react": "^1.2.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router": "^7.9.5"
+    "react-router": "^7.9.5",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

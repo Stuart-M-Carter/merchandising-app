@@ -1,12 +1,15 @@
+import "reflect-metadata";
+
+import { Provider } from 'inversify-react';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { StyledEngineProvider } from '@mui/material/styles';
 import App from './App';
 import { PublicClientApplication, EventType } from '@azure/msal-browser';
-import { msalConfig } from './authConfig';
+import { container } from "./services/container";
 
-const msalInstance = new PublicClientApplication(msalConfig);
+const msalInstance = container.get<PublicClientApplication>(Symbol.for("MsalInstance")) as PublicClientApplication;
 
 msalInstance.initialize().then(() => {
   // Default to using the first account if no account is active on page load
@@ -19,12 +22,7 @@ msalInstance.initialize().then(() => {
   msalInstance.enableAccountStorageEvents();
 
   msalInstance.addEventCallback((event:any) => {
-    if (event.eventType === EventType.LOGIN_SUCCESS
-      ||
-      event.eventType === EventType.ACQUIRE_TOKEN_SUCCESS
-      ||
-      event.eventType === EventType.SSO_SILENT_SUCCESS
-    ) {
+    if (event.eventType === EventType.LOGIN_SUCCESS || event.eventType === EventType.ACQUIRE_TOKEN_SUCCESS || event.eventType === EventType.SSO_SILENT_SUCCESS) {
       const account = event.payload.account;
       msalInstance.setActiveAccount(account);
     }
@@ -32,9 +30,11 @@ msalInstance.initialize().then(() => {
 
   createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <StyledEngineProvider injectFirst>
-      <App instance={msalInstance}/>
-    </StyledEngineProvider>
+    <Provider container={container}>
+      <StyledEngineProvider injectFirst>
+        <App instance={msalInstance}/>
+      </StyledEngineProvider>
+    </Provider>    
   </StrictMode>
   );
 
