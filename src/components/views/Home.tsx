@@ -1,14 +1,15 @@
 import ErrorBoundary from "../_core/error-boundary";
+import styles from './Home.module.css';
 
 function Home() {
     const buttonLabels = ['Button 1', 'Button 2', 'Button 3'];
 
     return (
-        <ErrorBoundary fallback={<div className='app-view'>An error occurred while loading the Home Page.</div>}>
-            <div className='app-view'>
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px', width: '100%' }}>
+        <ErrorBoundary fallback={<div className={styles.appView}>An error occurred while loading the Home Page.</div>}>
+            <div className={styles.appView}>
+                <div className={styles.buttonRow}>
                     {buttonLabels.map((label) => (
-                        <button key={label} style={{ flex: '0 1 auto' }}>{label}</button>
+                        <button key={label} className={styles.button}>{label}</button>
                     ))}
                 </div>
             </div>
