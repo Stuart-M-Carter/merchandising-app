@@ -3,7 +3,6 @@ import ErrorBoundary from "../_core/error-boundary";
 import styles from './Home.module.css';
 import { useCallback } from "react";
 import { features, Feature } from "./features";
-import Icon from '@mui/material/Icon';
 
 type FeatureButtonProps = {
     feature: Feature;
@@ -17,7 +16,7 @@ export function FeatureButton({ feature, className }: FeatureButtonProps) {
     return (
         <button className={className} onClick={onClick} aria-label={feature.label}>
             <span className="material-icons" aria-hidden="true" style={{ marginRight: 8 }}>
-                <Icon>{feature.icon}</Icon>
+                {feature.icon}
             </span>
             {feature.label}
         </button>
