@@ -1,0 +1,52 @@
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  color: inherit;
+  font: inherit;
+}
+
+.icon-button .icon {
+  display: block;
+}
+
+.icon-button--small .icon {
+  font-size: 18px;
+}
+
+.icon-button--medium .icon {
+  font-size: 24px;
+}
+
+.icon-button--large .icon {
+  font-size: 36px;
+}
+
+.icon-button .label {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 6.5rem;
+}
+
+.icon-button.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.icon-button:not(.disabled):hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+}
+
+.icon-button:focus {
+  outline: 2px solid rgba(25, 118, 210, 0.5);
+  border-radius: 6px;
+}

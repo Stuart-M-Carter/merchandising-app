@@ -1,6 +1,6 @@
 import router from './router';
 import './App.css'
-import { RouterProvider } from 'react-router';
+import { RouterProvider } from 'react-router/dom';
 import { AuthenticatedTemplate, MsalAuthenticationTemplate, MsalProvider } from '@azure/msal-react';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { loginRequest } from './authConfig';

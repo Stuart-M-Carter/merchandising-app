@@ -61,7 +61,7 @@ const AppBar: React.FC<AppBarProps> = ({
     const [query, setQuery] = useState("");
     const [avatar, setAvatar] = useState("./assets/missing_profile_image.svg");
 
-    const graph = useInjection<GraphService>(IDENTIFIERS.GraphService);
+    const graph = useInjection<IGraphService>(IDENTIFIERS.GraphService);
 
     useEffect( () => {
         async function fetchAvatar() {
