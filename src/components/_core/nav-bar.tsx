@@ -2,6 +2,7 @@ import { Drawer, Toolbar, IconButton, List, ListItem, ListItemButton, ListItemIc
 import React, { type JSX } from "react";
 import { Link } from "react-router";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import type { Feature } from "../views/features";
 
 type NavLink = {
     text: string;
@@ -42,7 +43,7 @@ const linkStyle: React.CSSProperties = {
 const drawerWidth = 240;
 
 
-export default function NavBar({ links, handleDrawerClose, open}: {links: NavLink[], handleDrawerClose: () => void, open: boolean   }) {
+export default function NavBar({ links, handleDrawerClose, open}: {links: Feature[], handleDrawerClose: () => void, open: boolean   }) {
     return (
     <Drawer
         variant="temporary" // Use "temporary" for a standard slide-in experience
@@ -75,12 +76,12 @@ export default function NavBar({ links, handleDrawerClose, open}: {links: NavLin
         {/* Sidebar Content */}
         <List>
           {links.map((item) => (
-            <ListItem key={item.text} disablePadding component={Link} to={item.path} onClick={handleDrawerClose} sx={{color:"common.black"}}>
+            <ListItem key={item.label} disablePadding component={Link} to={item.route} onClick={handleDrawerClose} sx={{color:"common.black"}}>
               <ListItemButton>
                 <ListItemIcon>
                   {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={item.text} />
+                <ListItemText primary={item.label} />
               </ListItemButton>
             </ListItem>
           ))}
