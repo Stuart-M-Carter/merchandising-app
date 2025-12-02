@@ -11,9 +11,9 @@ export class Feature {
     }
 }
 
-export const defaultFeatures: Feature[] = [
-    new Feature("Home", "home", "/"),
-    new Feature("Products", "inventory_2", "/products"),
-    new Feature("Cart", "shopping_cart", "/cart"),
+export const features: Feature[] = [
+    new Feature("Home", 'home' , "/"),
+    new Feature("Assortments", 'category', "/assortments"),
+    new Feature("Hierarchy", 'lan', "/hierarchy"),
 ];
 

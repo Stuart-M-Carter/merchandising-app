@@ -2,7 +2,8 @@ import { useNavigate } from "react-router";
 import ErrorBoundary from "../_core/error-boundary";
 import styles from './Home.module.css';
 import { useCallback } from "react";
-import { defaultFeatures, Feature } from "./features";
+import { features, Feature } from "./features";
+import Icon from '@mui/material/Icon';
 
 type FeatureButtonProps = {
     feature: Feature;
@@ -16,7 +17,7 @@ export function FeatureButton({ feature, className }: FeatureButtonProps) {
     return (
         <button className={className} onClick={onClick} aria-label={feature.label}>
             <span className="material-icons" aria-hidden="true" style={{ marginRight: 8 }}>
-                {feature.icon}
+                <Icon>{feature.icon}</Icon>
             </span>
             {feature.label}
         </button>
@@ -28,7 +29,7 @@ function Home() {
         <ErrorBoundary fallback={<div className={styles.appView}>An error occurred while loading the Home Page.</div>}>
             <div className={styles.appView}>
                 <div className={styles.buttonRow}>
-                    {defaultFeatures.map((feature) => (
+                    {features.map((feature) => (
                         <FeatureButton key={feature.label} feature={feature} className={styles.button} />
                     ))}
                 </div>
